@@ -1,0 +1,133 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <math.h>
+#define TRUE 1
+#define FALSE 0
+void manipular_pasta(int n, int e);
+int teste_primo(long long int numero);
+int test_coprimo(int e, int tp){
+    if (tp == 0){
+        return (e);}
+    else{
+        test_coprimo(tp, e % tp);}
+}
+int escolha_e(int tp){//entrada do E e avalia o E
+    // e é umas das chaves publica
+    int a;
+    long long int *prtE;
+    long long int e;
+    char var[7];
+    strcpy(var, "~(1 < e < tp), ou nao sao coprimos");
+    printf("digite um numero e que seja 1 < e < tp, sendo que sejam coprimos");
+    scanf("%lld", &e);
+    if(e > tp, e == 0, e == 1, e == 2, e == 3){
+        escolha_e(tp);}
+    else{
+    a = test_coprimo(e, tp);
+    if(a != 1){      //se nao forem coprimos, ou ~(1<e<tp), vai repetir a funcao
+        printf("%s", var);
+        printf("digite um numero e que seja 1 < e < tp, sendo que sejam coprimos");
+        escolha_e(tp);
+    if(a == 1){
+        *ptrE = e;
+        return 1;
+    }
+    }}
+void pega_P_Q(){
+    long long int p, q, n, tp, h; //h é o valor de é em formato de ponteiro
+    int a, b, c;
+    h = 0;
+    long long int *ptrE = &h;
+    printf("digite P, de preferencia um numero muito grande e que seja primo.");
+    scanf("%lld", &p);
+    printf("digite Q, de preferencia um numero muito grande e que seja primo.");
+    scanf("%lld", &q);
+    b = teste_primo(p);
+    c = teste_primo(q);
+    if(b != 0){
+        printf("p nao é primo");
+        pega_P_Q();
+    }
+    else if(c != 0){
+        printf("q nao é primo");
+        pega_P_Q();
+    }
+    if(p < 10000 , q < 10000){
+        printf("esse(s) primo(s) é(sao) pequeno(s)");
+    }
+
+    if(p == q){
+        pega_P_Q();
+    }
+    else{
+    n = p * q; //uma das chaves publica
+    tp = ((p - 1) * (q - 1));
+    a = escolha_e(tp);
+    if (a == 1){
+        manipular_pasta(n, h);
+        menu();
+    }}}
+
+void manipular_pasta(long long int n, long long int e){//entrada N e E saida um txt com as chaves
+    
+        //criar  um .txt com nome publica, A chave pública é composta pelo N e o E.
+        FILE *chave_p_pasta;
+        chave_p_pasta = fopen("publica.txt", "w");
+        if(chave_p_pasta == NULL){
+        /* Arquivo não foi criado, saindo */
+        printf("Nao foi possivel criar o arquivo.\n"); //acent
+        exit(EXIT_FAILURE);
+
+    fprintf(chave_p_pasta, "n = %lld, e = %lld", n, e);
+    fclose(chave_p_pasta);
+    printf("\nChave criada com sucesso!\n");
+}
+}}
+int teste_primo(long long int numero){//entra um numero, se primo retorna 0 se nao retorna 1 
+ int num, i, resultado = 0;
+ for (i = 2; i <= num / 2; i++) {
+    if (num % i == 0) {
+       resultado++;
+    }
+ }
+ 
+ if (resultado == 0)
+    return 1;
+ else
+    return 0;
+}
+int criptografar(){
+    long long int n, long long e
+    char mensagem[500000];
+    long long int cifra[500000];
+    printf("digite a mensagem");
+    getchar();
+    fgets(mensagem, 500000, stdin)
+   
+int main(){
+    void pega_P_Q();
+    return 0;
+}
+//ignorar: *menu de opcoes*
+
+
+/*FONTES
+https://www.pucsp.br/~so-comp/cursoc/aulas/c970.html
+https://docente.ifrn.edu.br/robinsonalves/disciplinas/algoritmos/algo04_ANSI_C_Strings.pdf
+https://imasters.com.br/back-end/metodologia-matematica-da-criptografia-rsa
+https://www.lambda3.com.br/2012/12/entendendo-de-verdade-a-criptografia-rsa/
+https://informacaoquantica.wordpress.com/2021/03/13/como-funciona-a-criptografia-rsa-de-forma-simples/
+https://www.docdroid.net/Hb50yD1/criptografia-criptografia-rsa-pdf#page=5
+https://terminalroot.com.br/2022/02/como-converter-ascii-para-binario-e-hexadecimal-e-vice-versa-com-cpp.html
+https://www.youtube.com/watch?v=SJmyIP2I_KM
+https://docs.microsoft.com/pt-br/cpp/c-runtime-library/reference/fgets-fgetws?view=msvc-170
+http://linguagemc.com.br/ponteiros-em-c/
+http://wiki.icmc.usp.br/images/8/82/Manipulacao_arquivos.pdf
+https://www.ufjf.br/jairo_souza/files/2009/12/3-Arquivos-Manipula%C3%A7%C3%A3o-de-arquivos-em-C.pdf
+https://www.ime.usp.br/~pf/algoritmos/aulas/string-manip.html
+https://www.ic.unicamp.br/~thelma/gradu/MC102/Turma-2008S2/Slides-aulas/Aula20-strings.pdf
+https://pt.wikipedia.org/wiki/Fun%C3%A7%C3%A3o_totiente_de_Euler
+
+*/
