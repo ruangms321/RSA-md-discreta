@@ -1,0 +1,23 @@
+________________BUGS_______________
+
++ Após a descriptografia o app nao 
+aceita mais comandos, caso digitar 
+alguma coisa aparece umas letras e 
+numeros aleatorios.
+
++ Numeros grandes nao descriptogra-
+fam criptografam possivelmente por
+conta de um while na descriptografia
+ou a funcao chave_privet(e, tp) faz
+overflow da ULA.
+
++ array de entrada aceita ate 49 
+letras mas com chaves grande o array
+de saida nao suportara pois o array
+só cabem aproximadamente 250 caracteres
+usando.
+
+chaves: p=13 q=7 e=5
+mensagem: "oi oi"
+texto criptogravado: 74 82 84 72 82
+
